@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Secure Terminal</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Hridyesh – Cybersecurity Specialist with 10+ years of experience in VA-PT, cloudsec, audit, AI, TPRM and security automation." />
+  <meta property="og:image" content="hrd.jpeg" />
+  <meta property="og:title" content="Hridyesh | Cybersecurity Consultant" />
+</head>
+<body>
+  <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
+
+  <div class="container">
+    <!-- Terminal Intro + Image -->
+<div class="whoami-layout">
+  <div class="terminal-left">
+    <div class="prompt-line"><b>$ whoami</b></div>
+    <div class="typed-output"><span>&gt;</span><span id="typewriter-text"></span><span class="cursor">|</span></div>
+  </div>
+  <div class="terminal-right">
+    <img src="hrd.jpeg" alt="Profile" class="whoami-img" />
+  </div>
+</div>
+
+
+    <!-- Why Me section -->
+
+<section class="why-accordion">
+  <h2>Why hire Me?</h2>
+
+  <div class="accordion-item">
+    <button class="accordion-header">
+      🔐 Experience
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      14 yrs in Security & Web Dev (Amazon, BMC, TCS…)
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-header">
+      🛡️ Skills
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      TPRM, VA-PT, cloud security, automation, consulting
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-header">
+      🤝 Strength
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      Simplifying complexity into business-aligned solutions
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-header">
+      🌍 Impact
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      Bridging tech + non-tech to deliver results
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-header">
+      🎯 Goal
+      <span class="arrow">▶</span>
+    </button>
+    <div class="accordion-content">
+      Lead global, security-first teams creating real value
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+    <!-- Search Box -->
+    <form id="searchForm" class="search-box" autocomplete="off">
+      <input type="text" id="searchInput" placeholder="🔍 Are you an HR ? Ask your questions to myAI" />
+    </form>
+
+    <!-- Scrollable button container -->
+    <div class="scroll-wrapper">
+      <button class="scroll-arrow left" aria-label="Scroll left">◀</button>
+      <div id="suggestions" class="command-suggestions scroll-buttons">
+        <button data-command="summary">📊 Summary</button>
+        <button data-command="experience">🧠 Experience</button>
+        <button data-command="certifications">📜 Certificates</button>
+        <button data-command="skills">🛠 Skills</button>
+        <button data-command="highlights">🚀 Highlights</button>
+      </div>
+      <button class="scroll-arrow right" aria-label="Scroll right">▶</button>
+    </div>
+
+    <div class="action-buttons">
+      <a href="mailto:mr.hridyesh@gmail.com" id="emailBtn" title="Send Email">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v.511l-8 5.334-8-5.334V6h16ZM4 18V8.289l7.36 4.9a1 1 0 0 0 1.28 0L20 8.29V18H4Z"/>
+        </svg>
+        Email
+      </a>
+      <a href="https://www.linkedin.com/in/hridyesh/" target="_blank" title="Visit LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 24V7h5v17H0zm7.5 0V7h4.7v2.53h.07c.65-1.23 2.24-2.53 4.6-2.53C22.4 7 24 9.24 24 13.26V24h-5v-9.36c0-2.23-.04-5.1-3.1-5.1-3.1 0-3.57 2.42-3.57 4.93V24H7.5z"/>
+        </svg>
+        LinkedIn
+      </a>
+      <a href="javascript:void(0)" id="resumePreviewBtn" title="Preview Resume">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M5 20h14v-2H5v2Zm7-18v12.17l4.59-4.58L18 11l-6 6-6-6 1.41-1.41L11 14.17V2h2Z"/>
+        </svg>
+        Download Resume
+      </a>
+    </div>
+
+    <div id="copyMsg" class="copy-feedback hidden">📋 Email copied to clipboard!</div>
+  </div>
+
+  <!-- Overlay Terminal Panel -->
+  <div id="terminalOverlay" class="overlay hidden">
+    <div class="overlay-header">
+      <div class="mac-buttons">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+    </div>
+    <div class="overlay-body" id="overlayContent"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js"></script>
+  <script src="js/search.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Resume Preview Modal -->
+  <div id="resumeModal" class="resume-modal hidden">
+    <div class="resume-content">
+      <div class="mac-buttons" id="resumeCloseBar">
+        <span class="dot red" id="closeResumeModal"></span>
+      </div>
+      <object data="hrdresume.pdf" type="application/pdf" width="100%" height="500">
+        <p>Your browser doesn't support PDF preview.
+          <a href="hrdresume.pdf" target="_blank">Click here to view it.</a>
+        </p>
+      </object>
+      <div class="resume-actions">
+        <button id="viewResume">🔎 View Fullscreen</button>
+        <button id="downloadResume">⬇️ Download</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📨 Contact Button -->
+  <div id="contact-btn" class="floating-button" title="Contact Me">📩</div>
+
+  <!-- 📄 Zoho Form Modal -->
+  <div id="contact-modal" class="modal-overlay hidden">
+    <div class="modal-content" id="contactModalContent">
+      <div class="mac-buttons">
+        <span class="dot red" id="contactModalClose"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <iframe aria-label="Let’s Connect!" frameborder="0" allow="geolocation;"
+              style="height:500px;width:100%;border:none; display: block;"
+              src="https://forms.zohopublic.in/mrhridyeshgm1/form/Contactme/formperma/0c8sg5HipxTCgBY2nYDr36AtCdaKMxyLpvACsN-MQMc">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    const contactBtn = document.getElementById('contact-btn');
+    const contactModal = document.getElementById('contact-modal');
+    const contactModalClose = document.getElementById('contactModalClose');
+    const contactModalContent = document.getElementById('contactModalContent');
+
+    contactBtn.addEventListener('click', () => {
+      contactModal.classList.remove('hidden');
+      document.body.classList.add('modal-open');
+    });
+
+    contactModalClose.addEventListener('click', () => {
+      contactModal.classList.add('hidden');
+      document.body.classList.remove('modal-open');
+    });
+
+    contactModal.addEventListener('click', (e) => {
+      if (!contactModalContent.contains(e.target)) {
+        contactModal.classList.add('hidden');
+        document.body.classList.remove('modal-open');
+      }
+    });
+  </script>
+</body>
+</html>
